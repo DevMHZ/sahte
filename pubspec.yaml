@@ -1,0 +1,80 @@
+name: sahte
+description: "A new Flutter project."
+ 
+publish_to: 'none'  
+
+ 
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+ 
+dependencies:
+  flutter:
+    sdk: flutter
+  permission_handler: 
+  go_router: 
+  flutter_screenutil: 
+  easy_localization: 
+  percent_indicator: 
+  font_awesome_flutter: 
+  freezed: 
+  freezed_annotation: 
+  geocoding: 
+  geolocator: 
+  get_it: 
+  google_fonts: 
+  google_maps_flutter: 
+  hive: 
+  hive_flutter: 
+  hive_generator: 
+  image_picker: 
+  intl: 
+  json_annotation: 
+  json_serializable: 
+  lottie: 
+  pretty_dio_logger: 
+  retrofit: 
+  retrofit_generator: 
+  shimmer: 
+  url_launcher: 
+  animated_notch_bottom_bar: 
+  awesome_notifications: 
+  bloc: 
+  build_runner: 
+  cached_network_image: 
+  carousel_slider: 
+  dio: 
+  firebase_analytics: 
+  firebase_core: 
+  firebase_messaging:
+  flutter_bloc: 
+  flutter_dotenv: 
+  flutter_lints: 
+  flutter_svg:
+  pretty_qr_code: 
+  pusher_channels_flutter: 
+  audioplayers:
+  local_auth: 
+  pin_code_fields: 
+  font_awesome_icon_class: 
+  otp_autofill: 
+  iconsax: 
+  cupertino_icons: 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+ 
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/translations/
+    - assets/google_maps/
+

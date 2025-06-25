@@ -9,13 +9,10 @@ import 'package:sahte/core/helper/size.dart';
 import 'package:sahte/core/router/rotue_names.dart';
 import 'package:sahte/core/style/text_style.dart';
 import 'package:sahte/core/widgets/text_form_fiels.dart';
- 
- 
+
 // ignore: must_be_immutable
 class SignInFormFields extends StatefulWidget {
-  const SignInFormFields({
-    super.key,
-  });
+  const SignInFormFields({super.key});
 
   @override
   SignInFormFieldsState createState() => SignInFormFieldsState();
@@ -69,53 +66,57 @@ class SignInFormFieldsState extends State<SignInFormFields> {
             controller: _emailController,
             additionalWidget: Text(
               'email'.tr(),
-              style: TextStyles.text_14(context)
-                  .copyWith(fontWeight: FontWeight.bold),
+              style: TextStyles.text_14(
+                context,
+              ).copyWith(fontWeight: FontWeight.bold),
             ),
             hintText: 'example@gmail.com',
             validator: _validateEmail,
           ),
           MediaSize.verticalSpce(10),
-           CustomTextFormField(
+          CustomTextFormField(
             fillColor: Theme.of(context).colorScheme.secondary,
             controller: _passwordController,
             additionalWidget: Text(
               'password'.tr(),
-              style: TextStyles.text_14(context)
-                  .copyWith(fontWeight: FontWeight.bold),
+              style: TextStyles.text_14(
+                context,
+              ).copyWith(fontWeight: FontWeight.bold),
             ),
             hintText: '********',
           ),
-           MediaSize.verticalSpce(20),
-BlocBuilder<LoginCubit, LoginState>(
-  builder: (_, state) {
-    return state.maybeWhen(orElse:() {
-      return const SizedBox();
-    },
-    
-    success: (response) {
-      Future.delayed(Duration.zero,(){
-        context.push(RouteNames.nurseHomeScreen ,);
-      });
-      return const SizedBox();
-    },);
-  },
-),
+          MediaSize.verticalSpce(20),
+          BlocBuilder<LoginCubit, LoginState>(
+            builder: (_, state) {
+              return state.maybeWhen(
+                orElse: () {
+                  return const SizedBox();
+                },
+
+                success: (response) {
+                  Future.delayed(Duration.zero, () {
+                    context.push(RouteNames.nurseHomeScreen);
+                  });
+                  return const SizedBox();
+                },
+              );
+            },
+          ),
           SignInButton(
             onPressed: () {
               if (formKey.currentState!.validate()) {
-                context.read<LoginCubit>().login(LoginRequest(
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                    ));
-         
-
-               } else {
-              }
+                context.read<LoginCubit>().login(
+                  LoginRequest(
+                    email: _emailController.text,
+                    password: _passwordController.text,
+                  ),
+                );
+              } else {}
               return null;
             },
-          )
+          ),
         ],
       ),
-    );}
-  } 
+    );
+  }
+}

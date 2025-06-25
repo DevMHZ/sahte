@@ -18,7 +18,7 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       final res = await repo.login(request);
 
-      // Since your model doesn't have status boolean, 
+      // Since your model doesn't have status boolean,
       // you can just check if token is not empty
       if (res.token.isNotEmpty) {
         // Save token to Hive after successful login

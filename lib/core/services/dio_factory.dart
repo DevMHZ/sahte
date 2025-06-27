@@ -45,7 +45,6 @@ class DioFactory {
   }
 
   static void _addDioInterceptor() {
-    // Add logging interceptor to log HTTP requests and responses
     _dio?.interceptors.add(
       PrettyDioLogger(
         request: true,

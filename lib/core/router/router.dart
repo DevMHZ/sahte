@@ -5,31 +5,39 @@ import 'package:sahte/auth/login/presentation/screen/sign_in_screen.dart';
 import 'package:sahte/core/di/di.dart';
 import 'package:sahte/core/router/rotue_names.dart';
 import 'package:sahte/core/router/transaction.dart';
-
+import 'package:sahte/nurse/presentation/cubit/services_cubit.dart';
+import 'package:sahte/nurse/presentation/screens/services_screen.dart';
 
 abstract class GoRouterApp {
   static bool isChecked = false;
 
   static final GoRouter router = GoRouter(
-    
     routes: [
-    
       GoRoute(
-          path: RouteNames.signIn,
-          pageBuilder: (
-            context,
-            state,
-          ) {
-            return CustomSlideTransition(
-                child: MultiBlocProvider(
+        path: RouteNames.signIn,
+        pageBuilder: (context, state) {
+          return CustomSlideTransition(
+            child: MultiBlocProvider(
               providers: [
                 BlocProvider(create: (context) => getIt<LoginCubit>()),
               ],
               child: const SignInScreen(),
-            ));
-          }),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: RouteNames.nurseHomeScreen,
+        pageBuilder: (context, state) {
+          return CustomSlideTransition(
+            child: BlocProvider(
+              create: (context) => getIt<ServicesCubit>()..fetchServices(),
+              child: const ServicesScreen(),
+            ),
+          );
+        },
+      ),
 
-    
       // GoRoute(
       //   path: '/editStorageItem/:itemId',
       //   builder: (context, state) {
@@ -47,6 +55,5 @@ abstract class GoRouterApp {
       //   },
       // ),
     ],
-   
   );
 }

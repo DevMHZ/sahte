@@ -55,7 +55,7 @@ dependencies:
   flutter_svg:
   pretty_qr_code: 
   pusher_channels_flutter: 
-  audioplayers:
+  # audioplayers:
   local_auth: 
   pin_code_fields: 
   font_awesome_icon_class: 

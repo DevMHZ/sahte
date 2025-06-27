@@ -1,5 +1,8 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:dio/io.dart';
 
@@ -44,32 +47,60 @@ class DioFactory {
     _dio?.options.headers['Authorization'] = 'Bearer $token';
   }
 
+  // static void _addDioInterceptor() {
+  //   _dio?.interceptors.add(
+  //     PrettyDioLogger(
+  //       request: true,
+  //       requestHeader: true,
+  //       requestBody: true,
+  //       responseHeader: true,
+  //       responseBody: true,
+  //       error: true,
+  //     ),
+  //   );
+
+  //   // Add error handling interceptor to handle errors properly
+  //   _dio?.interceptors.add(
+  //     InterceptorsWrapper(
+  //       onError: (DioException e, ErrorInterceptorHandler handler) {
+  //         // Log detailed error information
+  //         print('Error occurred: ${e.message}');
+  //         print('Request: ${e.requestOptions}');
+  //         if (e.response != null) {
+  //           print('Response: ${e.response?.data}');
+  //           print('Status Code: ${e.response?.statusCode}');
+  //         } else {
+  //           print('Request failed without response: ${e.requestOptions.data}');
+  //         }
+  //         handler.next(e); // Continue with the error handling chain
+  //       },
+  //     ),
+  //   );
+  // }
+
   static void _addDioInterceptor() {
     _dio?.interceptors.add(
-      PrettyDioLogger(
-        request: true,
-        requestHeader: true,
-        requestBody: true,
-        responseHeader: true,
-        responseBody: true,
-        error: true,
+      InterceptorsWrapper(
+        onRequest: (options, handler) async {
+          final box = await Hive.openBox("authBox");
+          final token = box.get('token');
+          if (token != null) {
+            options.headers['Authorization'] = 'Bearer $token';
+          }
+          return handler.next(options);
+        },
       ),
     );
 
-    // Add error handling interceptor to handle errors properly
-    _dio?.interceptors.add(InterceptorsWrapper(
-      onError: (DioException e, ErrorInterceptorHandler handler) {
-        // Log detailed error information
-        print('Error occurred: ${e.message}');
-        print('Request: ${e.requestOptions}');
-        if (e.response != null) {
-          print('Response: ${e.response?.data}');
-          print('Status Code: ${e.response?.statusCode}');
-        } else {
-          print('Request failed without response: ${e.requestOptions.data}');
-        }
-        handler.next(e); // Continue with the error handling chain
-      },
-    ));
+    if (kDebugMode) {
+      _dio?.interceptors.add(
+        PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          error: true,
+        ),
+      );
+    }
   }
 }

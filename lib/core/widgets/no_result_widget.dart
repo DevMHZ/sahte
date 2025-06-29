@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import 'package:sahte/core/helper/size.dart';
 
 class NoResultWidget extends StatelessWidget {
@@ -18,9 +17,8 @@ class NoResultWidget extends StatelessWidget {
           Center(
             child: SizedBox(
               height: 250.h,
-              child: LottieBuilder.asset(
+              child:Text(
                 'assets/animations/empty.json',
-                repeat: false,
               ),
             ),
           ),

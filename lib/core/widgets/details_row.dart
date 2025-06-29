@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sahte/core/style/text_style.dart';
+import 'package:sahte/core/style/design_tokens.dart';
 
 class DetailsRowWidget extends StatelessWidget {
   final String title;
@@ -19,12 +19,13 @@ class DetailsRowWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title.tr(),
-              style: TextStyles.text_14(context)
-                  .copyWith(fontWeight: FontWeight.bold)),
+          Text(
+            title,
+            style: AppTextStyles.bodyMedium(context),
+          ),
           Text(
             detail.tr(),
-            style: TextStyles.text_14(context),
+            style: AppTextStyles.bodyMedium(context),
           ),
         ],
       ),

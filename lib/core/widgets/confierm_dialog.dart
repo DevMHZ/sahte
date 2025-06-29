@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:sahte/core/style/text_style.dart';
+import 'package:sahte/core/style/design_tokens.dart';
 
 class ConfirmDialogWidget extends StatelessWidget {
   final String title;
@@ -21,25 +21,25 @@ class ConfirmDialogWidget extends StatelessWidget {
     return AlertDialog(
       title: Text(
         title.tr(),
-        style: TextStyles.text_18(context),
+        style: AppTextStyles.headlineSmall(context),
       ),
       content: Text(
         content.tr(),
-        style: TextStyles.text_14(context),
+        style: AppTextStyles.bodyMedium(context),
       ),
       actions: [
         TextButton(
           onPressed: onCancel,
           child: Text(
             'cancel'.tr(),
-            style: TextStyles.text_16(context),
+            style: AppTextStyles.bodyLarge(context),
           ),
         ),
         TextButton(
           onPressed: onConfirm,
           child: Text(
             'confirm'.tr(),
-            style: TextStyles.text_16(context),
+            style: AppTextStyles.bodyLarge(context),
           ),
         ),
       ],

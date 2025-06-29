@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sahte/core/style/text_style.dart';
+import 'package:sahte/core/style/design_tokens.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String? label;
@@ -75,7 +75,7 @@ class CustomTextFormField extends StatelessWidget {
             decoration: InputDecoration(
               labelText: label,
               hintText: hintText,
-              hintStyle: TextStyles.text_14(context).copyWith(
+              hintStyle: AppTextStyles.bodyMedium(context).copyWith(
                 color: Theme.of(context)
                     .textTheme
                     .bodyLarge!

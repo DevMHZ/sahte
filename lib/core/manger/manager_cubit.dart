@@ -23,6 +23,27 @@ class ManagerCubit extends Cubit<ManagerState> {
     emit(state.copyWith(themeMode: newTheme));
   }
 
+  void setThemeMode(ThemeMode mode) {
+    // Save the new theme in Hive
+    settingsBox.put('themeMode', mode.toString());
+
+    emit(state.copyWith(themeMode: mode));
+  }
+
+  void setLightTheme() {
+    setThemeMode(ThemeMode.light);
+  }
+
+  void setDarkTheme() {
+    setThemeMode(ThemeMode.dark);
+  }
+
+  void setSystemTheme() {
+    setThemeMode(ThemeMode.system);
+  }
+
+  bool get isDarkMode => state.themeMode == ThemeMode.dark;
+
   // Function to change the language and save it to Hive
   changeLanguage({required Locale locale, required BuildContext context}) {
     // Save the selected language in Hive
@@ -46,9 +67,19 @@ class ManagerCubit extends Cubit<ManagerState> {
     // Load theme settings
     final String? savedTheme =
         settingsBox.get('themeMode', defaultValue: ThemeMode.light.toString());
-    ThemeMode themeMode = savedTheme == ThemeMode.dark.toString()
-        ? ThemeMode.dark
-        : ThemeMode.light;
+    
+    ThemeMode themeMode;
+    switch (savedTheme) {
+      case 'ThemeMode.dark':
+        themeMode = ThemeMode.dark;
+        break;
+      case 'ThemeMode.system':
+        themeMode = ThemeMode.system;
+        break;
+      default:
+        themeMode = ThemeMode.light;
+        break;
+    }
 
     // Create the locale object using stored values
     Locale locale;

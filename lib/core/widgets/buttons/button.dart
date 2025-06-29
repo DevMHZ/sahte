@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:sahte/core/style/text_style.dart';
+import 'package:sahte/core/style/design_tokens.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     TextStyle style;
     if (textStyle == null) {
-      style = TextStyles.text_16(context)
+      style = AppTextStyles.bodyLarge(context)
           .copyWith(color: Colors.white, fontWeight: FontWeight.bold);
     } else {
       style = textStyle!

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sahte/core/helper/size.dart';
-import 'package:sahte/core/style/text_style.dart';
+import 'package:sahte/core/style/design_tokens.dart';
 import 'package:sahte/core/widgets/loading.dart';
  
 class LoadingButton extends StatelessWidget {
@@ -66,7 +66,7 @@ class LoadingButton extends StatelessWidget {
                   children: [
                     Text(
                       buttonText,
-                      style: TextStyles.text_20(context).copyWith(
+                      style: AppTextStyles.headlineMedium(context).copyWith(
                         color: Theme.of(context).colorScheme.brightness ==
                                 Brightness.dark
                             ? Colors.black

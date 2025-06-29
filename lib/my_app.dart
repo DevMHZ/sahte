@@ -23,12 +23,15 @@ class MyApp extends StatelessWidget {
           return BlocBuilder<ManagerCubit, ManagerState>(
             builder: (context, state) {
               return MaterialApp.router(
-                  debugShowCheckedModeBanner: false,
-                  theme: state.themeMode == ThemeMode.light
-                      ? AppTheme.lightTheme
-                      : AppTheme.darkTheme,
-                  routerConfig: GoRouterApp.router,
-                 );
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.lightTheme,
+                darkTheme: AppTheme.darkTheme,
+                themeMode: state.themeMode,
+                routerConfig: GoRouterApp.router,
+                localizationsDelegates: context.localizationDelegates,
+                supportedLocales: context.supportedLocales,
+                locale: context.locale,
+              );
             },
           );
         },

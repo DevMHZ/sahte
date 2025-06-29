@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:sahte/core/style/text_style.dart';
+import 'package:sahte/core/style/design_tokens.dart';
 
 class SnackbarHelper {
   static void showSnackbar({
@@ -60,13 +60,12 @@ class SnackbarHelper {
               children: [
                 if (title != null)
                   Text(title.tr(),
-                      style: TextStyles.text_16(context)
-                          .copyWith(color: Colors.white)),
+                      style: AppTextStyles.bodyLarge(context)
+                          .copyWith(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 5),
                 Text(
                   content.tr(),
-                  style:
-                      TextStyles.text_14(context).copyWith(color: Colors.white),
+                  style: AppTextStyles.bodyMedium(context).copyWith(color: Colors.white),
                 ),
               ],
             ),

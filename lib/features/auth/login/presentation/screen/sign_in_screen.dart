@@ -56,7 +56,10 @@ class _SignInScreenState extends State<SignInScreen> {
                       borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
                     ),
                     padding: EdgeInsets.all(AppSpacing.spacing12),
-                    minimumSize: Size(AppSpacing.spacing40, AppSpacing.spacing40),
+                    minimumSize: Size(
+                      AppSpacing.spacing40,
+                      AppSpacing.spacing40,
+                    ),
                   ),
                 ),
               );

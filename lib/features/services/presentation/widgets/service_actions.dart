@@ -10,10 +10,7 @@ import 'package:sahte/features/services/presentation/widgets/service_dialog.dart
 class ServiceActions extends StatelessWidget {
   final Services service;
 
-  const ServiceActions({
-    super.key,
-    required this.service,
-  });
+  const ServiceActions({super.key, required this.service});
 
   void _showDeleteConfirmationDialog(BuildContext context) {
     showDialog(
@@ -66,14 +63,12 @@ class ServiceActions extends StatelessWidget {
         IconButton(
           icon: const Icon(Icons.edit, color: Colors.blue),
           onPressed: () => _showUpdateDialog(context),
-          tooltip: 'edit_service'.tr(),
         ),
         IconButton(
           icon: const Icon(Icons.delete, color: Colors.red),
           onPressed: () => _showDeleteConfirmationDialog(context),
-          tooltip: 'delete_service'.tr(),
         ),
       ],
     );
   }
-} 
+}

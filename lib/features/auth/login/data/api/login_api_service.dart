@@ -13,3 +13,4 @@ abstract class LoginApiService {
   @POST(LoginApiConst.login)
   Future<LoginResponse> login(@Body() LoginRequest request);
 }
+

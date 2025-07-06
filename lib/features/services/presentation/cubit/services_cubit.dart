@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:sahte/core/helper/error_handler.dart';
 import 'package:sahte/features/services/data/repo/repo.dart';
 import 'package:sahte/features/services/model/services.dart';
 import 'package:sahte/features/services/model/services_request/services_request.dart';
@@ -18,7 +19,7 @@ class ServicesCubit extends Cubit<ServicesState> {
       final response = await repo.getServices();
       emit(ServicesState.success(response.services));
     } catch (e) {
-      emit(ServicesState.failure(e.toString()));
+      emit(ServicesState.failure(ErrorParser.parse(e)));
     }
   }
 
@@ -29,9 +30,9 @@ class ServicesCubit extends Cubit<ServicesState> {
     try {
       final request = ServicesRequest(name: name, price: price);
       await repo.createService(request);
-      await fetchServices(); // Refresh the list
+      await fetchServices();
     } catch (e) {
-      emit(ServicesState.failure(e.toString()));
+      emit(ServicesState.failure(ErrorParser.parse(e)));
     }
   }
 
@@ -43,20 +44,20 @@ class ServicesCubit extends Cubit<ServicesState> {
     try {
       final request = ServicesRequest(name: name, price: price);
       await repo.updateService(serviceId, request);
-      await fetchServices(); // Refresh the list
+      await fetchServices();
     } catch (e) {
-      emit(ServicesState.failure(e.toString()));
+      emit(ServicesState.failure(ErrorParser.parse(e)));
     }
   }
 
   Future<void> deleteService({required int serviceId}) async {
     try {
       await repo.deleteService(serviceId);
-      await fetchServices(); // Refresh the list
+      await fetchServices();
     } catch (e) {
-      emit(ServicesState.failure(e.toString()));
+      emit(ServicesState.failure(ErrorParser.parse(e)));
     }
   }
 
   void resetState() => emit(const ServicesState.initial());
-} 
+}

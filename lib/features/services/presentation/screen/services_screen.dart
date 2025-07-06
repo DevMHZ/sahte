@@ -20,17 +20,13 @@ class _ServicesScreenState extends State<ServicesScreen> {
   @override
   void initState() {
     super.initState();
-    // Fetch services when screen loads
     context.read<ServicesCubit>().fetchServices();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: 'my_services'.tr(),
-        centerTitle: true,
-      ),
+      appBar: CustomAppBar(title: "my_services".tr(), centerTitle: true),
       body: BlocBuilder<ServicesCubit, ServicesState>(
         builder: (context, state) {
           return state.when(
@@ -48,7 +44,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                   ),
                   SizedBox(height: AppSpacing.spacing16),
                   Text(
-                    '${'error'.tr()}: $message',
+                    '${'error'.tr()}: $message. ',
                     style: AppTextStyles.bodyLarge(context),
                     textAlign: TextAlign.center,
                   ),
@@ -68,4 +64,4 @@ class _ServicesScreenState extends State<ServicesScreen> {
       floatingActionButton: const AddServiceButton(),
     );
   }
-} 
+}

@@ -1,9 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sahte/core/style/design_tokens.dart';
 import 'package:sahte/features/services/model/services.dart';
-import 'package:sahte/features/services/presentation/cubit/services_cubit.dart';
 import 'package:sahte/features/services/presentation/widgets/service_actions.dart';
 
 class ServiceItem extends StatelessWidget {
@@ -33,6 +31,7 @@ class ServiceItem extends StatelessWidget {
           width: AppSpacing.spacing48,
           height: AppSpacing.spacing48,
           decoration: BoxDecoration(
+            // ignore: deprecated_member_use
             color: AppColors.primary.withOpacity(0.1),
             borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
           ),

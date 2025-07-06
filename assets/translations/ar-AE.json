@@ -50,5 +50,6 @@
   "service_added_successfully": "تم إضافة الخدمة بنجاح",
   "service_updated_successfully": "تم تحديث الخدمة بنجاح",
   "service_deleted_successfully": "تم حذف الخدمة بنجاح",
-  "retry": "إعادة المحاولة"
+  "retry": "إعادة المحاولة",
+  "confirm": "تأكيد"
 }

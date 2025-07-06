@@ -18,16 +18,9 @@ class LoginCubit extends Cubit<LoginState> {
     emit(const LoginState.loading());
     try {
       final res = await repo.login(request);
-
-      // Since your model doesn't have status boolean,
-      // you can just check if token is not empty
       if (res.token.isNotEmpty) {
-        // Save token using AuthStorageHelper
         await AuthStorageHelper.saveToken(res.token);
-        
-        // Set token in Dio headers for future requests
         DioFactory.setTokenIntoHeaderAfterLogin(res.token);
-
         emit(LoginState.success(res));
         print('Received Token: ${res.token}');
         

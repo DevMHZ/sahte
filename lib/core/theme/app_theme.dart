@@ -5,21 +5,16 @@ import '../style/app_colors.dart';
 import '../style/app_spacing.dart';
 
 class AppTheme {
-  // Theme Mode
   static ThemeMode _themeMode = ThemeMode.light;
-  
-  // Getter for current theme mode
+
   static ThemeMode get themeMode => _themeMode;
-  
-  // Setter for theme mode
+
   static void setThemeMode(ThemeMode mode) {
     _themeMode = mode;
   }
-  
-  // Check if current theme is dark
+
   static bool get isDark => _themeMode == ThemeMode.dark;
-  
-  // Light Theme
+
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
@@ -27,8 +22,7 @@ class AppTheme {
       colorScheme: _lightColorScheme,
       textTheme: _lightTextTheme,
       fontFamily: _getFontFamily(),
-      
-      // App Bar Theme
+
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.surface,
         foregroundColor: AppColors.textPrimary,
@@ -42,7 +36,7 @@ class AppTheme {
           size: AppSpacing.iconMd,
         ),
       ),
-      
+
       // Card Theme
       cardTheme: CardThemeData(
         color: AppColors.surface,
@@ -52,7 +46,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
         ),
       ),
-      
+
       // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -72,7 +66,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // Text Button Theme
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -85,7 +79,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // Outlined Button Theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -103,7 +97,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -139,7 +133,7 @@ class AppTheme {
           color: AppColors.textSecondary,
         ),
       ),
-      
+
       // Checkbox Theme
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateProperty.resolveWith((states) {
@@ -153,7 +147,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppSpacing.radiusXs),
         ),
       ),
-      
+
       // Switch Theme
       switchTheme: SwitchThemeData(
         thumbColor: MaterialStateProperty.resolveWith((states) {
@@ -169,14 +163,14 @@ class AppTheme {
           return AppColors.border;
         }),
       ),
-      
+
       // Divider Theme
       dividerTheme: DividerThemeData(
         color: AppColors.border,
         thickness: AppSpacing.dividerThickness,
         space: AppSpacing.spacing16,
       ),
-      
+
       // Bottom Navigation Bar Theme
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.surface,
@@ -189,7 +183,7 @@ class AppTheme {
         ),
         unselectedLabelStyle: _lightTextTheme.labelSmall,
       ),
-      
+
       // Floating Action Button Theme
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: AppColors.primary,
@@ -199,7 +193,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
         ),
       ),
-      
+
       // Snackbar Theme
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.surface,
@@ -211,7 +205,7 @@ class AppTheme {
         ),
         behavior: SnackBarBehavior.floating,
       ),
-      
+
       // Dialog Theme
       dialogTheme: DialogThemeData(
         backgroundColor: AppColors.surface,
@@ -224,7 +218,7 @@ class AppTheme {
         ),
         contentTextStyle: _lightTextTheme.bodyMedium,
       ),
-      
+
       // Chip Theme
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.secondary,
@@ -236,7 +230,7 @@ class AppTheme {
       ),
     );
   }
-  
+
   // Dark Theme
   static ThemeData get darkTheme {
     return ThemeData(
@@ -245,7 +239,7 @@ class AppTheme {
       colorScheme: _darkColorScheme,
       textTheme: _darkTextTheme,
       fontFamily: _getFontFamily(),
-      
+
       // App Bar Theme
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.surfaceDark,
@@ -260,7 +254,7 @@ class AppTheme {
           size: AppSpacing.iconMd,
         ),
       ),
-      
+
       // Card Theme
       cardTheme: CardThemeData(
         color: AppColors.surfaceDark,
@@ -270,7 +264,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
         ),
       ),
-      
+
       // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -290,7 +284,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // Text Button Theme
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -303,7 +297,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // Outlined Button Theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -321,7 +315,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -357,7 +351,7 @@ class AppTheme {
           color: AppColors.textSecondaryDark,
         ),
       ),
-      
+
       // Checkbox Theme
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateProperty.resolveWith((states) {
@@ -371,7 +365,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppSpacing.radiusXs),
         ),
       ),
-      
+
       // Switch Theme
       switchTheme: SwitchThemeData(
         thumbColor: MaterialStateProperty.resolveWith((states) {
@@ -387,14 +381,14 @@ class AppTheme {
           return AppColors.borderDark;
         }),
       ),
-      
+
       // Divider Theme
       dividerTheme: DividerThemeData(
         color: AppColors.borderDark,
         thickness: AppSpacing.dividerThickness,
         space: AppSpacing.spacing16,
       ),
-      
+
       // Bottom Navigation Bar Theme
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.surfaceDark,
@@ -407,7 +401,7 @@ class AppTheme {
         ),
         unselectedLabelStyle: _darkTextTheme.labelSmall,
       ),
-      
+
       // Floating Action Button Theme
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: AppColors.primary,
@@ -417,7 +411,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
         ),
       ),
-      
+
       // Snackbar Theme
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.surfaceDark,
@@ -429,7 +423,7 @@ class AppTheme {
         ),
         behavior: SnackBarBehavior.floating,
       ),
-      
+
       // Dialog Theme
       dialogTheme: DialogThemeData(
         backgroundColor: AppColors.surfaceDark,
@@ -442,7 +436,7 @@ class AppTheme {
         ),
         contentTextStyle: _darkTextTheme.bodyMedium,
       ),
-      
+
       // Chip Theme
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.surfaceSecondary,
@@ -454,7 +448,7 @@ class AppTheme {
       ),
     );
   }
-  
+
   // Light Color Scheme
   static ColorScheme get _lightColorScheme {
     return const ColorScheme(
@@ -473,7 +467,7 @@ class AppTheme {
       outlineVariant: AppColors.borderLight,
     );
   }
-  
+
   // Dark Color Scheme
   static ColorScheme get _darkColorScheme {
     return const ColorScheme(
@@ -492,7 +486,7 @@ class AppTheme {
       outlineVariant: AppColors.borderDark,
     );
   }
-  
+
   // Light Text Theme
   static TextTheme get _lightTextTheme {
     return TextTheme(
@@ -588,7 +582,7 @@ class AppTheme {
       ),
     );
   }
-  
+
   // Dark Text Theme
   static TextTheme get _darkTextTheme {
     return TextTheme(
@@ -684,14 +678,14 @@ class AppTheme {
       ),
     );
   }
-  
+
   // Get font family based on locale
   static String _getFontFamily() {
     // You can implement locale detection here
     // For now, returning the default font
     return GoogleFonts.poppins().fontFamily ?? 'Poppins';
   }
-  
+
   // Get current theme data
   static ThemeData get currentTheme {
     switch (_themeMode) {
@@ -703,21 +697,23 @@ class AppTheme {
         return lightTheme; // Default to light theme for system
     }
   }
-  
+
   // Toggle theme
   static void toggleTheme() {
-    _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    _themeMode = _themeMode == ThemeMode.light
+        ? ThemeMode.dark
+        : ThemeMode.light;
   }
-  
+
   // Set specific theme
   static void setLightTheme() {
     _themeMode = ThemeMode.light;
   }
-  
+
   static void setDarkTheme() {
     _themeMode = ThemeMode.dark;
   }
-  
+
   static void setSystemTheme() {
     _themeMode = ThemeMode.system;
   }

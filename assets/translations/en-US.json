@@ -52,5 +52,6 @@
   "service_added_successfully": "Service added successfully",
   "service_updated_successfully": "Service updated successfully",
   "service_deleted_successfully": "Service deleted successfully",
-  "retry": "Retry"
+  "retry": "Retry",
+  "confirm":"Confirm"
 }

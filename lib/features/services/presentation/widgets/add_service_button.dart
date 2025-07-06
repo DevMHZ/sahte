@@ -13,10 +13,7 @@ class AddServiceButton extends StatelessWidget {
       context: context,
       builder: (_) => ServiceDialog(
         onConfirm: (name, price) {
-          context.read<ServicesCubit>().createService(
-            name: name,
-            price: price,
-          );
+          context.read<ServicesCubit>().createService(name: name, price: price);
           CustomSnackBar.show(
             context: context,
             message: 'service_added_successfully'.tr(),
@@ -35,4 +32,4 @@ class AddServiceButton extends StatelessWidget {
       child: const Icon(Icons.add),
     );
   }
-} 
+}

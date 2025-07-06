@@ -51,53 +51,55 @@ class _ServiceDialogState extends State<ServiceDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    
-    return AlertDialog(
-      title: Text(_isEditing ? 'update_service'.tr() : 'add_new_service'.tr()),
-      content: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CustomTextFormField(
-              controller: _nameController,
-              label: 'service_name'.tr(),
-              validator: (value) {
-                if (value == null || value.trim().isEmpty) {
-                  return 'service_name_required'.tr();
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: AppSpacing.spacing16),
-            CustomTextFormField(
-              controller: _priceController,
-              label: 'price'.tr(),
-              keyboardType: TextInputType.number,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'price_required'.tr();
-                }
-                if (double.tryParse(value) == null) {
-                  return 'price_invalid'.tr();
-                }
-                return null;
-              },
-            ),
-          ],
+    return SingleChildScrollView(
+      child: AlertDialog(
+        title: Text(
+          _isEditing ? 'update_service'.tr() : "add_new_service".tr(),
         ),
+        content: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomTextFormField(
+                controller: _nameController,
+                label: 'service_name'.tr(),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'service_name_required'.tr();
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: AppSpacing.spacing16),
+              CustomTextFormField(
+                controller: _priceController,
+                label: 'price'.tr(),
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'price_required'.tr();
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'price_invalid'.tr();
+                  }
+                  return null;
+                },
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text('cancel'.tr()),
+          ),
+          CustomButton(
+            text: _isEditing ? 'update'.tr() : 'add'.tr(),
+            onPressed: _submitForm,
+          ),
+        ],
       ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text('cancel'.tr()),
-        ),
-        CustomButton(
-          text: _isEditing ? 'update'.tr() : 'add'.tr(),
-          onPressed: _submitForm,
-        ),
-      ],
     );
   }
-} 
+}

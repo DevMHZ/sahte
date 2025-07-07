@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:sahte/core/services/auth_storage_helper.dart';
 import 'package:sahte/features/nurse/data/api/api_const.dart';
-import 'package:sahte/features/nurse/model/services_response.dart';
+
+import '../repo/services_response.dart';
 
 class ServicesApiService {
   final Dio dio;

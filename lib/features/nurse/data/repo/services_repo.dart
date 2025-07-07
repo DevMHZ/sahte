@@ -1,5 +1,5 @@
 import 'package:sahte/features/nurse/data/api/services_api_service.dart';
-import 'package:sahte/features/nurse/model/services_response.dart';
+import 'package:sahte/features/nurse/data/repo/services_response.dart';
 
 class ServicesRepository {
   final ServicesApiService apiService;

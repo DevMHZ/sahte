@@ -7,7 +7,7 @@ import '../logic/service_state.dart';
 import '../data/models/service_model.dart';
 import 'widgets/service_form_dialog.dart';
 class ServiceScreen extends StatelessWidget {
-  final int nurseId; // تمرير nurseId بعد تسجيل الدخول
+  final int nurseId;
   const ServiceScreen({super.key, required this.nurseId});
   @override
   Widget build(BuildContext context) {

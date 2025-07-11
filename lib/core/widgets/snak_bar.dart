@@ -22,7 +22,7 @@ class SnackbarHelper {
       behavior: SnackBarBehavior.floating,
       backgroundColor: backgroundColor,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12), // Rounded corners
+        borderRadius: BorderRadius.circular(12), // Rounded conersr
       ),
       content: Row(
         children: [

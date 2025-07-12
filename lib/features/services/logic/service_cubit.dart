@@ -1,13 +1,14 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../data/models/service_model.dart';
 import '../data/service_api.dart';
-//part 'service_cubit.freezed.dart';
+
+part 'service_cubit.freezed.dart';
 part 'service_state.dart';
 
 class ServiceCubit extends Cubit<ServiceState> {
   final ServiceApi api;
+
   ServiceCubit(this.api) : super(const ServiceState.initial());
 
   Future<void> fetchServices() async {

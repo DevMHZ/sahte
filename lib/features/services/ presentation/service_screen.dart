@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import ' widgets/service_form_dialog.dart';
-import '../../core/di/di.dart';
+import '../../../core/di/di.dart';
 import '../logic/service_cubit.dart';
-import '../logic/service_state.dart';
 import '../data/models/service_model.dart';
-import 'widgets/service_form_dialog.dart';
 class ServiceScreen extends StatelessWidget {
   final int nurseId;
   const ServiceScreen({super.key, required this.nurseId});
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<ServiceCubit>()..fetchServices(),
+      create: (_) => getIt<ServiceCubit>()..fetchServices(),
       child: Scaffold(
         appBar: AppBar(title: const Text('الخدمات')),
         body: BlocBuilder<ServiceCubit, ServiceState>(

@@ -17,9 +17,9 @@ class ServiceScreen extends StatelessWidget {
         appBar: AppBar(title: const Text('الخدمات')),
         body: BlocBuilder<ServiceCubit, ServiceState>(
           builder: (context, state) {
-            if (state is _Loading) return const Center(child: CircularProgressIndicator());
-            if (state is _Error) return Center(child: Text('حدث خطأ: ${state.message}'));
-            if (state is _Loaded) {
+            if (state is ServiceLoading) return const Center(child: CircularProgressIndicator());
+            if (state is ServiceError) return Center(child: Text('حدث خطأ: ${state.message}'));
+            if (state is ServiceLoaded) {
               final services = state.services;
               return ListView.builder(
                 itemCount: services.length,
